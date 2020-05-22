@@ -1,5 +1,5 @@
-FROM FROM python:3
-COPY COPY . /usr/src/app
+FROM python:3
+COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN  apt-get update
 RUN pip install --no-cache-dir -r requirements.txt
