@@ -19,5 +19,14 @@ def seq_match():
     return resp
 
 
+@app.route("/detect_lq", methods=["GET", "POST"])
+def check_lq_match():
+    sentence = request.args.get("sentence")
+    resp = Response(jsonpickle.encode(sequence_match.check_lq_match(sentence)), status=200,
+                    mimetype='application/json')
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='9999', debug=True)
